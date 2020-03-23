@@ -35,7 +35,7 @@ $Blockedwords = $Null #New
 $Blockedwords = import-csv "<Insert FilePath to blockedwords here_Header is BlockedWords>"
 foreach ($Entry in $Entries)
 {
-#Set file variable
+#Set variable
 $VisibilityType = $Null
 $Description = $Null
 $RequestorsEmail = $Null
@@ -49,17 +49,8 @@ $WordCheck = 0 #New
 $word = $Null #New
 $UPN = $Null
 $Name = $Null
-$Name1 = $Null
-$Name2 = $Null
-$Name3 = $Null
-$Name4 = $Null
-$Name5 = $Null
 $Name = $entry.Fieldvalues.Title
-$Name1 = $Name -replace ',','_'
-$Name2 = $Name1 -replace '\.','_'
-$Name3 = $Name2 -replace '-','_'
-$Name4 = $Name3 -replace ' ','_'
-$Name5 = $Name4 -replace '@','_'
+$Name5 = $Name -replace '[\W]', ''
 $VisibilityType = $entry.Fieldvalues.VisibilityType
 $Description = $entry.Fieldvalues.Description
 $RequestorsEmail = $entry.Fieldvalues.Author.Email
@@ -69,10 +60,12 @@ $EntryID = $entry.Fieldvalues.ID
 $UPN = (Get-mailbox -identity $RequestorsEmail).userprincipalname
 $GivenName = (Get-AzureADUser -ObjectId $UPN).GivenName
 $TeamsName = $Name5
-$Array = $Name5.Split("_") #New
+$Array = $Name.Split(" ") #New
 Foreach($word in $Array)
 {
-  if ($Blockedwords.blockedwords -contains $word)
+  $Wordvalue = $Null
+  $Wordvalue = $word -replace ' ', ''
+  if ($Blockedwords.blockedwords -contains $Wordvalue)
   {
   $WordCheck++
   }
