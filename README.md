@@ -5,4 +5,5 @@ Benefits:
 Eliminates duplicate display name limitation on the Teams client.
 Ensures that the Team email address is unique without random numbers appended to it.
 Informs the requestor when a name is already in use and provides the name of the current Team owner.
+Blocks restricted words from being used. More restricted words can be added in the csv file. 
 Gives administrators more control over how teams are created. The script can be modified to include unique naming conventions.
