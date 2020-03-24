@@ -2,6 +2,7 @@
 # Autor: Martin N. (kdships@gmail.com)
 # Note: The reason for the multiple start-sleep entries is due to a known feedback failures from Microsoft. 
 # Adding some delays helped fix the issue. Microsoft have been informed about the PS bug.
+# Remember to assign your credentials to $UserCredential
 $SiteURL = "https://XXXXXXX.sharepoint.com/sites/XXXXXXXXXX"
 $TeamListName = "XXXXXXXXXX"
 
