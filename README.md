@@ -4,5 +4,5 @@ Contains code for Teams self-service app. Requests are stored in a SharePoint li
 Benefits:
 Eliminates duplicate display name limitation on the Teams client.
 Ensures that the Team email address is unique without random numbers appended to it.
-Informs the requestor if a name is already in use and provides names of the current owners.
+Informs the requestor when a name is already in use and provides names of the current owners.
 Gives administrators more control over how teams are created. The script can be modified to include unique naming conventions.
