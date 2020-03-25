@@ -54,8 +54,9 @@ $WordCheck = 0 #New
 $word = $Null #New
 $UPN = $Null
 $Name = $Null
+$Name0 = $Null
 $Name = $entry.Fieldvalues.Title
-$Name5 = $Name -replace '[\W]', ''
+$Name0 = $Name -replace '[\W]', ''
 $VisibilityType = $entry.Fieldvalues.VisibilityType
 $Description = $entry.Fieldvalues.Description
 $RequestorsEmail = $entry.Fieldvalues.Author.Email
@@ -64,7 +65,7 @@ $O365GroupNameorEmail = $entry.Fieldvalues.O365GroupNameorEmail
 $EntryID = $entry.Fieldvalues.ID
 $UPN = (Get-mailbox -identity $RequestorsEmail).userprincipalname
 $GivenName = (Get-AzureADUser -ObjectId $UPN).GivenName
-$TeamsName = $Name5
+$TeamsName = $Name0
 $Array = $Name.Split(" ") #New
 Foreach($word in $Array)
 {
